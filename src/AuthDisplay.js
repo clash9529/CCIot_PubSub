@@ -6,7 +6,7 @@ import AWSConfiguration from './aws-iotcore-configuration.js';
 
 function createAndAttachPolicy(id) {
     var Iot = new AWS.Iot({region: AWSConfiguration.region, apiVersion: AWSConfiguration.apiVersion, endpoint: AWSConfiguration.endpoint});
-    var policyName = "amplifyIotReactApp-v3";
+    var policyName = "amplifyIotReactApp-v4";
 
 
     var params = {policyName: policyName};
