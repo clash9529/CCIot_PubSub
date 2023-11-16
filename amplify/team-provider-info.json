@@ -1,0 +1,56 @@
+{
+  "cpapp": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-awsamplifyreacttempl--authRole",
+      "UnauthRoleArn": "arn:aws:iam::954075284382:role/amplify-awsamplifyreacttempl-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::954075284382:role/amplify-awsamplifyreacttempl-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-awsamplifyreacttempl-deployment",
+      "UnauthRoleName": "amplify-awsamplifyreacttempl-unauthRole",
+      "StackName": "amplify-awsamplifyreacttempl",
+      "StackId": "arn:aws:cloudformation:ap-south-1:954075284382:stack/amplify-awsamplifyreacttempl/d6f39000-7000-11ec-bef8-0a3d0a4ac375",
+      "AmplifyAppId": "d150kh01nxvr11"
+    },
+    "categories": {
+      "auth": {
+        "cognito81d9f49f": {}
+      }
+    }
+  },
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-awsamplifyreacttempl-dev-120848-authRole",
+      "UnauthRoleArn": "arn:aws:iam::614576638502:role/amplify-awsamplifyreacttempl-dev-120848-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::614576638502:role/amplify-awsamplifyreacttempl-dev-120848-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-awsamplifyreacttempl-dev-120848-deployment",
+      "UnauthRoleName": "amplify-awsamplifyreacttempl-dev-120848-unauthRole",
+      "StackName": "amplify-awsamplifyreacttempl-dev-120848",
+      "StackId": "arn:aws:cloudformation:ap-south-1:614576638502:stack/amplify-awsamplifyreacttempl-dev-120848/d76afc30-8435-11ee-b984-0a051a4f6b62",
+      "AmplifyAppId": "d2aeths0fhpzby"
+    },
+    "categories": {
+      "auth": {
+        "cognito81d9f49f": {}
+      }
+    }
+  },
+  "devtwo": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-awsamplifyreacttempl-devtwo-121659-authRole",
+      "UnauthRoleArn": "arn:aws:iam::614576638502:role/amplify-awsamplifyreacttempl-devtwo-121659-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::614576638502:role/amplify-awsamplifyreacttempl-devtwo-121659-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-awsamplifyreacttempl-devtwo-121659-deployment",
+      "UnauthRoleName": "amplify-awsamplifyreacttempl-devtwo-121659-unauthRole",
+      "StackName": "amplify-awsamplifyreacttempl-devtwo-121659",
+      "StackId": "arn:aws:cloudformation:ap-south-1:614576638502:stack/amplify-awsamplifyreacttempl-devtwo-121659/fba1cf10-8436-11ee-a00c-023e8b2bc5e0",
+      "AmplifyAppId": "d2aeths0fhpzby"
+    },
+    "categories": {
+      "auth": {
+        "cognito81d9f49f": {}
+      }
+    }
+  }
+}

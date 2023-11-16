@@ -1,0 +1,59 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-awsamplifyreacttempl-devtwo-121659-authRole",
+      "UnauthRoleArn": "arn:aws:iam::614576638502:role/amplify-awsamplifyreacttempl-devtwo-121659-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::614576638502:role/amplify-awsamplifyreacttempl-devtwo-121659-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-awsamplifyreacttempl-devtwo-121659-deployment",
+      "UnauthRoleName": "amplify-awsamplifyreacttempl-devtwo-121659-unauthRole",
+      "StackName": "amplify-awsamplifyreacttempl-devtwo-121659",
+      "StackId": "arn:aws:cloudformation:ap-south-1:614576638502:stack/amplify-awsamplifyreacttempl-devtwo-121659/fba1cf10-8436-11ee-a00c-023e8b2bc5e0",
+      "AmplifyAppId": "d2aeths0fhpzby"
+    }
+  },
+  "auth": {
+    "cognito81d9f49f": {
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_UPPERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS"
+          ]
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-awsamplifyreacttempl-devtwo-121659-deployment/amplify-cfn-templates/auth/cognito81d9f49f-cloudformation-template.yml",
+        "logicalId": "authcognito81d9f49f"
+      },
+      "lastPushTimeStamp": "2023-11-16T04:21:52.490Z",
+      "output": {
+        "AppClientSecret": "11b5as27fat5v8dqrip9knhql66c98rnumtijvdn96s7ttcp4af7",
+        "UserPoolId": "ap-south-1_xPIIRjKB9",
+        "AppClientIDWeb": "7uu06utehrnm8l7fg4qnv4vgs0",
+        "AppClientID": "653lfv6kh65a6quq5hk0nmk7go",
+        "IdentityPoolId": "ap-south-1:ebd832fd-9e9b-4d89-871e-232b40b90d79",
+        "IdentityPoolName": "cognito81d9f49f_identitypool_81d9f49f__devtwo",
+        "UserPoolName": "cognito81d9f49f_userpool_81d9f49f"
+      },
+      "lastPushDirHash": "Hgo+WQtvWN1ath7gr0QZhV/NwzU="
+    }
+  }
+}
