@@ -17,7 +17,7 @@ The functionality is similar to (though simpler, less pretty) version of the "Te
 Refer: https://docs.amplify.aws/start/getting-started/installation/q/integration/js
 
 1. Before we begin, make sure you have the following installed:
-   Node.js v12.x or later
+   Node.js v16.0
 
       ```sh
          node -v
