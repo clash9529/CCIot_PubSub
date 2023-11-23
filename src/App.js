@@ -1,22 +1,22 @@
 import React from 'react';
 import { withAuthenticator } from 'aws-amplify-react';
-import logo from './logo.svg';
 import './App.css';
 
-import AuthDisplay from './AuthDisplay';
-import MQTTDisplay from './MQTTDisplay'
+import MQTTConnect from './MQTTConnect'
+import Homepage from './Homepage';
 
 function App(props) {
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
       </header>
       <br/>
-      <MQTTDisplay {...props} />
+      <MQTTConnect />
+      <Homepage />
+      {/* <MQTTDisplay {...props} /> */}
       <br/>
-      <AuthDisplay {...props} />
     </div>
   );
 

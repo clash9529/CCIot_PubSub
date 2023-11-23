@@ -26,9 +26,9 @@ function MQTTDisplay(props) {
   // ALLOW USER TO SUBSCRIBE TO MQTT TOPICS
 
   const [desiredSubscriptionTopic, setDesiredSubscriptionTopic] = useState("#");
+  const [subscribedTopics, setSubscribedTopics]           = useState([]);
   const [desiredPublishTopic,   setDesiredPublishTopic]   = useState("test");
   const [desiredPublishMessage, setDesiredPublishMessage] = useState(`{ "message": "Hello, world!" }`);
-  const [subscribedTopics, setSubscribedTopics]           = useState([]);
   
   // isConnected and mqttClient strictly used for publishing;
   // Subscriptions are instead handled in child MQTTSubscription components
