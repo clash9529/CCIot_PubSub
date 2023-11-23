@@ -17,7 +17,7 @@ The functionality is similar to (though simpler, less pretty) version of the "Te
 Refer: https://docs.amplify.aws/start/getting-started/installation/q/integration/js
 
 1. Before we begin, make sure you have the following installed:
-   Node.js v12.x or later
+   Node.js v16.0
 
       ```sh
          node -v
@@ -174,6 +174,7 @@ It will have a name similar to `arn:aws:iam::123456790:role/amplify-awsamplifyre
 4. Run the website locally
 
   ```
+  cd aws-amplify-react-iot-pub-sub-using-cp
   npm run start
   ```
 
