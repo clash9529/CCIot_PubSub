@@ -174,6 +174,7 @@ It will have a name similar to `arn:aws:iam::123456790:role/amplify-awsamplifyre
 4. Run the website locally
 
   ```
+  cd aws-amplify-react-iot-pub-sub-using-cp
   npm run start
   ```
 
