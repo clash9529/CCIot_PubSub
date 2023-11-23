@@ -1,9 +1,10 @@
 import React from 'react';
 import { withAuthenticator } from 'aws-amplify-react';
+import logo from './logo.svg';
 import './App.css';
 
 import MQTTConnect from './MQTTConnect'
-import Homepage from './Homepage';
+import Homepage from './Homepage'
 
 function App(props) {
 
@@ -12,9 +13,9 @@ function App(props) {
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
       </header>
+      <Homepage/>
       <br/>
       <MQTTConnect />
-      <Homepage />
       {/* <MQTTDisplay {...props} /> */}
       <br/>
     </div>
