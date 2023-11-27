@@ -11,17 +11,27 @@ import Homepage from './Homepage'
 function App(props) {
 
   const [startDate, setStartDate] = useState(new Date())
+  const [refresh, setRefresh] = useState(false)
+
+  const handleRefresh = () => {
+    setRefresh(!refresh)
+  }
 
   return (
     <div className='App'>
       <div className='container'>
         <div className='flex-container'>
-          <Homepage date={startDate}/>
-          <DatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            on
-          />
+          <Homepage date={startDate} refresh={refresh}/>
+          <div className='date-container'>
+            <button onClick={handleRefresh}>Refresh</button>
+            <div className='date-picker'>
+              Date:
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+              />
+            </div>
+          </div>
         </div>
         <MQTTConnect />
       </div>

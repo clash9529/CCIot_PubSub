@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Plot from 'react-plotly.js'
 
-export default function Homepage({ date }) {
+export default function Homepage({ date, refresh }) {
 
   const [ plot, setPlot ] = useState(0)
 
@@ -12,7 +12,7 @@ export default function Homepage({ date }) {
       .then(response => response.json())
       .then(data => setPlot(data))
       .catch(err => console.error("Error fetching json file:", err))
-  }, [date])
+  }, [date, refresh])
 
 
   return (
