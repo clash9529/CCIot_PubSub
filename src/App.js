@@ -1,23 +1,29 @@
 import React from 'react';
 import { withAuthenticator } from 'aws-amplify-react';
-import logo from './logo.svg';
 import './App.css';
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css";
+import { useState } from 'react';
 
 import MQTTConnect from './MQTTConnect'
 import Homepage from './Homepage'
 
 function App(props) {
 
+  const [ startDate, setStartDate ] = useState(new Date())
+
   return (
     <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-      </header>
       <Homepage/>
-      <br/>
-      <MQTTConnect />
-      {/* <MQTTDisplay {...props} /> */}
-      <br/>
+      <div className='container'>
+        <div className='flex-container'>
+          <MQTTConnect />
+          <DatePicker 
+            selected={startDate} 
+            onChange={(date) => setStartDate(date)}
+          />
+        </div>
+      </div>
     </div>
   );
 

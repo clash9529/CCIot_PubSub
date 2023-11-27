@@ -10,7 +10,8 @@ function MQTTConnect() {
 
   const [isConnected, setIsConnected] = useState(false);
   const [mqttClient, setMqttClient]   = useState();
-  const [messages, setMessages]       = useState([]);
+  // const [messages, setMessages]       = useState([]);
+  const [bpm, setBPM] = useState(0);
 
   useEffect(() => {
 
@@ -19,7 +20,7 @@ function MQTTConnect() {
     return () => {
       // this gets called when component is destroyed...
       //https://github.com/mqttjs/MQTT.js/blob/master/README.md#end    
-    //   console.log(`Ended subscription to '${props.topic}'...`);
+      // console.log(`Ended subscription to '${props.topic}'...`);
     };
 
   },[]); // the "[]" causes this to execute just once
@@ -50,18 +51,21 @@ function MQTTConnect() {
     // On connect, update status
     newMqttClient.on('connect', function() {
       setIsConnected(true);
-      newMqttClient.subscribe(`iotproject/${clientId}`);
+      newMqttClient.subscribe(`esp32/example/topic`);
       console.log('Connected to AWS IoT for clientId:', clientId);
-      console.log(`Subscribed to iotproject/${clientId}`);
+      console.log(`Subscribed to esp32/example/topic`);
     
     });
 
     // add event handler for received messages
     newMqttClient.on('message', function(topic, payload) {
-      var myDate =      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString();
-      var newMessage =  `${myDate} - topic '${topic}' - \n ${payload.toString()}`;
-      setMessages(prevMessages => [...prevMessages, newMessage]);
-      console.log(newMessage);
+      // var myDate =      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString();
+      // var newMessage =  `${myDate} - topic '${topic}' - \n ${payload.toString()}`;
+      // setMessages(prevMessages => [...prevMessages, newMessage]);
+      // console.log(newMessage);
+      let json = JSON.parse(payload.toString())
+      setBPM(json.bpm)
+      console.log("Curren BPM:", bpm);
     });
 
     // update state to track mqtt client
@@ -70,20 +74,9 @@ function MQTTConnect() {
   }
 
   return (
-    // <div className="MQTTSubscription">
-    //   Topic Filter: "iotproject" ({isConnected ? "connected" : "not connected"})
-    //   <br/><br/>
-
-    //   {messages.map((message,index) => {
-    //     return (
-    //       <li key={index} className="markdown">
-    //         {message}
-    //       </li>
-    //     );
-    //   })}
-    // </div>
     <div>
-        
+      <b>Current BPM</b>
+      <p>{bpm}</p>
     </div>
   );
 
