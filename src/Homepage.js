@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Plot from 'react-plotly.js'
 
-export default function Homepage() {
+export default function Homepage({ date }) {
 
   const [ plot, setPlot ] = useState(0)
 
   useEffect(() => {
-    fetch("https://heartmonitoring-bucket.s3.ap-south-1.amazonaws.com/27-11-2023.json")
+    console.log(`${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`);
+    let currentDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+    fetch(`https://heartmonitoring-bucket.s3.ap-south-1.amazonaws.com/${currentDate}.json`)
       .then(response => response.json())
       .then(data => setPlot(data))
       .catch(err => console.error("Error fetching json file:", err))
-  }, [])
+  }, [date])
 
 
   return (

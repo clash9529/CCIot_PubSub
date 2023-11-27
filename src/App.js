@@ -10,19 +10,20 @@ import Homepage from './Homepage'
 
 function App(props) {
 
-  const [ startDate, setStartDate ] = useState(new Date())
+  const [startDate, setStartDate] = useState(new Date())
 
   return (
-    <div className="App">
-      <Homepage/>
+    <div className='App'>
       <div className='container'>
         <div className='flex-container'>
-          <MQTTConnect />
-          <DatePicker 
-            selected={startDate} 
+          <Homepage date={startDate}/>
+          <DatePicker
+            selected={startDate}
             onChange={(date) => setStartDate(date)}
+            on
           />
         </div>
+        <MQTTConnect />
       </div>
     </div>
   );

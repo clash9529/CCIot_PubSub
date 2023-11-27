@@ -76,7 +76,7 @@ function MQTTConnect() {
   return (
     <div>
       <b>Current BPM</b>
-      <p>{bpm}</p>
+      <p style={{textAlign: 'center'}}>{bpm}</p>
     </div>
   );
 
