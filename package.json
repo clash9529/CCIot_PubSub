@@ -8,6 +8,7 @@
     "aws-iot-device-sdk": "^2.2.1",
     "aws-sdk": "^2.814.0",
     "deepmerge": "^3.2.0",
+    "dotenv": "^16.3.1",
     "plotly.js": "^2.27.1",
     "react": "^16.8.1",
     "react-datepicker": "^4.23.0",
