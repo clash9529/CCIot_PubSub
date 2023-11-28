@@ -8,8 +8,8 @@ Amplify.configure(awsmobile);
 //######################################################################################
 function MQTTConnect() {
 
-  const [isConnected, setIsConnected] = useState(false);
-  const [mqttClient, setMqttClient]   = useState();
+  // const [isConnected, setIsConnected] = useState(false);
+  // const [mqttClient, setMqttClient]   = useState();
   // const [messages, setMessages]       = useState([]);
   const [bpm, setBPM] = useState(0);
 
@@ -50,7 +50,6 @@ function MQTTConnect() {
     console.log('Subscriber trying to connect to AWS IoT for clientId:', clientId);
     // On connect, update status
     newMqttClient.on('connect', function() {
-      setIsConnected(true);
       newMqttClient.subscribe(`esp32/example/topic`);
       console.log('Connected to AWS IoT for clientId:', clientId);
       console.log(`Subscribed to esp32/example/topic`);
@@ -69,7 +68,7 @@ function MQTTConnect() {
     });
 
     // update state to track mqtt client
-    setMqttClient(newMqttClient);
+    // setMqttClient(newMqttClient);
 
   }
 

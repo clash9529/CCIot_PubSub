@@ -4,17 +4,16 @@ import Plot from "react-plotly.js";
 import AWS from "aws-sdk";
 
 AWS.config.update({
-  accessKeyId: "AKIAY6F47JITDY6YNKJ7",
-  secretAccessKey: "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",
+  accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
 });
 
-const S3_BUCKET = "heartmonitoring-bucket";
-const REGION = "ap-south-1";
+const S3_BUCKET = process.env.REACT_APP_AWS_S3_BUCKET_NAME + "-bucket";
 const URL_EXPIRATION_TIME = 3600; // in seconds
 
 const myBucket = new AWS.S3({
   params: { Bucket: S3_BUCKET },
-  region: REGION,
+  region: process.env.REACT_APP_AWS_REGION,
 });
 
 function getPreviousDay(date = new Date()) {
@@ -34,7 +33,6 @@ function join(date, options, separator) {
 
 export default function Homepage() {
   const [plot, setPlot] = useState(0);
-  const [urll, setUrll] = useState("");
   var listofDays = [];
 
   var options = [{ day: "numeric" }, { month: "numeric" }, { year: "numeric" }];
@@ -42,7 +40,8 @@ export default function Homepage() {
 
   var tdy = new Date();
 
-  
+  console.log(S3_BUCKET);
+
   listofDays.push(joined);
   for (var i = 0; i < 6; i++) {
     joined = join(getPreviousDay(tdy), options, "-");
@@ -56,13 +55,12 @@ export default function Homepage() {
     myBucket.getSignedUrl(
       "getObject",
       {
-        Key: joined+".json",
+        Key: joined + ".json",
         Expires: URL_EXPIRATION_TIME,
       },
       (err, url) => {
         console.log(url);
         console.log(err);
-        setUrll(url);
         fetch(url)
           .then((response) => response.json())
           .then((data) => setPlot(data))
@@ -77,7 +75,7 @@ export default function Homepage() {
     myBucket.getSignedUrl(
       "getObject",
       {
-        Key: event.target.value+".json",
+        Key: event.target.value + ".json",
         Expires: URL_EXPIRATION_TIME,
       },
       (err, url) => {
@@ -87,7 +85,7 @@ export default function Homepage() {
           .then((response) => response.json())
           .then((data) => setPlot(data))
           .catch((err) => {
-            console.error("Error fetching json file:", err)
+            console.error("Error fetching json file:", err);
             setPlot("");
           });
         return url; // API Response Here
@@ -96,32 +94,26 @@ export default function Homepage() {
   }
 
   return (
-    <div>
-      <img
-        src={"/VitalWatcher.png"}
-        alt="Vital Watcher"
-        style={{
-          width: "80px",
-          height: "80px",
-          position: "absolute",
-          top: 0,
-          left: 0,
-        }}
-      />
-      <Plot
-        // style={{ width: "300px", height: "200px" }}
-        data={plot.data}
-        layout={plot.layout}
-      />
-      <select onChange={handleChange}>
-        {listofDays.map((option) => {
-          return (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          );
-        })}
-      </select>
+    <div style={{width:"100%", alignItems:"center"}}>
+      <div>
+        <Plot
+          style={{ width: "50%", height: "500px" }}
+          data={plot.data}
+          layout={plot.layout}
+        />
+      </div>
+      <div style={{textAlign: 'center'}}>
+        Select Date:
+        <select onChange={handleChange}>
+          {listofDays.map((option) => {
+            return (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            );
+          })}
+        </select>
+      </div>
     </div>
   );
 }
