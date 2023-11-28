@@ -23,3 +23,5 @@ amplify/backend/awscloudformation/build
 
 build/
 dist/
+
+.env
